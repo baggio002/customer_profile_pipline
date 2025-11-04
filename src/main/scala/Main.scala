@@ -10,13 +10,14 @@ object Main {
 
     def connectBq(): Unit = {
         val spark = SparkSession.builder
-            .appName(this.getClass.getName)
-            .master("local[*]")
-            .getOrCreate()
+           .appName(this.getClass.getName)
+           .master("local[*]")
+           .getOrCreate() 
         println("test bq connection===");
         val df = spark.read
-            .format("bigquery")
-            .load("bigquery-public-data.austin_311.311_service_requests")
+           .format("bigquery")
+           .load("zhaohu-test3.case_detail.t_cases_details_source")
+        // val df = spark.sql("SELECT * FROM `zhaohu-test3.test1.test1`");
         df.show();
     }
 

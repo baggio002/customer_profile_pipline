@@ -1,7 +1,0 @@
-[0m[[0m[0mdebug[0m] [0m[0mnot up to date. inChanged = true, force = false[0m
-[0m[[0m[0mdebug[0m] [0m[0mUpdating ProjectRef(uri("file:/home/zhaohu/spark-workspace/customer-segments-metrics/project/"), "customer-segments-metrics-build")...[0m
-[0m[[0m[0minfo[0m] [0m[0mUpdating customer-segments-metrics-build[0m
-[0m[[0m[0minfo[0m] [0m[0mResolved customer-segments-metrics-build dependencies[0m
-[0m[[0m[0minfo[0m] [0m[0mFetching artifacts of customer-segments-metrics-build[0m
-[0m[[0m[0minfo[0m] [0m[0mFetched artifacts of customer-segments-metrics-build[0m
-[0m[[0m[0mdebug[0m] [0m[0mDone updating ProjectRef(uri("file:/home/zhaohu/spark-workspace/customer-segments-metrics/project/"), "customer-segments-metrics-build")[0m
