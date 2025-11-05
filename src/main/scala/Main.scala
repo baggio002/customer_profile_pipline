@@ -1,6 +1,7 @@
 import org.apache.spark.sql.SparkSession
 import org.apache.spark.sql.DataFrame
 import org.apache.spark.sql.functions._
+import org.apache.spark.sql.SaveMode
 
 object Main {
 
@@ -326,7 +327,16 @@ object Main {
     }
 
     def output(df: DataFrame): Unit = {
-        df.show()
+        // df.show()
+        val jdbcUrl = "jdbc:postgresql://10.105.64.4:5432/customer-profile"
+        val tableName = "public.customer_profile"
+        val connectionProperties = new java.util.Properties()
+        connectionProperties.setProperty("user", "postgres")
+        connectionProperties.setProperty("password", "!Zidane820917")
+        connectionProperties.setProperty("driver", "org.postgresql.Driver")
+        df.write
+            .mode(SaveMode.Overwrite) //Overwrite, ErrorIfExists, Ignore
+            .jdbc(jdbcUrl, tableName, connectionProperties)
 
     }
 
