@@ -2,12 +2,33 @@ import org.apache.spark.sql.SparkSession
 import org.apache.spark.sql.DataFrame
 
 object Main {
-    def main(args: Array[String]): Unit =
+
+    val spark = SparkSession.builder
+           .appName(this.getClass.getName)
+           .master("local[*]")
+           .getOrCreate()    
+
+    def readData(): DataFrame = {
+        spark.read
+           .format("bigquery")
+           .load("zhaohu-test3.case_detail.t_cases_details_source")
+    }
+    
+    def main(args: Array[String]): Unit = {
         println("Hello world!");
         // connectBq();
-        connectPostgresql();
+        // connectPostgresql();
+        processData(readData())
+    }
 
-    def msg = "I was compiled by Scala 3. :)"
+    def processData(df: DataFrame): Unit = {
+        // df.show();
+        df.groupBy("customer_id", "customer_name", "industry", "customer_is_hypercare")
+            .count()
+            .withColumnRenamed("count", "case_count")
+            .select("customer_id","customer_name", "industry", "customer_is_hypercare", "case_count")
+            .show()
+    }
 
     def connectBq(): Unit = {
         val spark = SparkSession.builder
