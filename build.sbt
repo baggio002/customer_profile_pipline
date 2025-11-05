@@ -13,6 +13,7 @@ lazy val root = project
       "org.apache.spark" %% "spark-core" % sparkVersion,
       "org.apache.spark" %% "spark-sql" % sparkVersion,
       "com.google.cloud.spark" %% "spark-bigquery-with-dependencies" % "0.43.1",
-      "org.apache.hadoop" % "hadoop-client" % "3.4.2"
+      "org.apache.hadoop" % "hadoop-client" % "3.4.2",
+      "org.postgresql" % "postgresql" % "42.7.8"
     )
   )
